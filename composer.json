@@ -26,5 +26,8 @@
             "SilexGuzzle\\": "src\\SilexGuzzle"
         }
     },
+    "autoload-dev": {
+        "psr-4": { "SilexGuzzle\\Tests\\": "tests/SilexGuzzle/" }
+    },
     "minimum-stability": "stable"
 }

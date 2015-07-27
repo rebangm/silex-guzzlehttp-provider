@@ -1,6 +1,6 @@
 <?php
 
-namespace SilexGuzzle\Tests\Extension;
+namespace SilexGuzzle\Tests;
 
 use Silex\Application;
 
@@ -50,7 +50,7 @@ class GuzzleServiceProviderTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @Exception
+     * @Exception GuzzleHttp\Exception\ConnectException
      */
     public function testTimeoutApi()
     {
@@ -62,7 +62,6 @@ class GuzzleServiceProviderTest extends \PHPUnit_Framework_TestCase
         });
         $request = Request::create('/');
         $app->handle($request);
-        $myRequest = $app['guzzle']->get('http://httpbin.org/delay/5');
-        $this->assertSame($myRequest->getStatusCode(),"200");
+        $app['guzzle']->get('http://httpbin.org/delay/5');
     }
 }

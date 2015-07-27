@@ -4,7 +4,9 @@ require_once "../vendor/autoload.php";
 
 $app = new Silex\Application();
 $app['debug'] = true;
+$app['guzzle.timeout'] = 1.0;
 $app->register(new SilexGuzzle\GuzzleServiceProvider());
+
 
 $app->get('/', function() use($app) {
 
