@@ -20,15 +20,22 @@ class GuzzleServiceProvider implements ServiceProviderInterface
     {
         $app['guzzle'] = $app->share(function () use ($app) {
 
-            $config = array();
-            return new Client(['connect_timeout' => 1,'timeout' => 2]);
+            $this->getConfiguration($app);
+            return new Client($this->config);
         });
     }
 
     protected function getConfiguration($app){
-        $app['guzzle.base_uri'];
-        $app['guzzle.timeout'];
-        $app['guzzle.connect_timeout'];
-        $this->config;
+
+        if(isset($app['guzzle.base_uri'])){
+            $this->config['base_uri'] = $app['guzzle.base_uri'];
+        }
+        if(isset($app['guzzle.timeout'])){
+            $this->config['timeout'] = $app['guzzle.timeout'];
+        }
+        if(isset($app['guzzle.allow_redirect'])){
+            $this->config['allow_redirect'] = $app['guzzle.allow_redirect'];
+        }
+
     }
 }
