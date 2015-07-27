@@ -1,5 +1,5 @@
 {
-    "name": "rebangm/silex-Guzzlehttp-provider",
+    "name": "rebangm/silex-guzzlehttp-provider",
     "description": "Guzzle http service provider for Silex",
     "keywords": ["silex", "guzzlehttp", "provider"],
     "homepage": "https://github.com/rebangm/silex-Guzzlehttp-provider",
