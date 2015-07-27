@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 
 class GuzzleServiceProvider implements ServiceProviderInterface
 {
-    private $config = array();
+    private $configuration = array();
 
     public function boot(Application $app)
     {
@@ -20,21 +20,21 @@ class GuzzleServiceProvider implements ServiceProviderInterface
     {
         $app['guzzle'] = $app->share(function () use ($app) {
 
-            $this->getConfiguration($app);
-            return new Client($this->config);
+            $this->setConfiguration($app);
+            return new Client($this->configuration);
         });
     }
 
-    protected function getConfiguration($app){
+    protected function setConfiguration($app){
 
         if(isset($app['guzzle.base_uri'])){
-            $this->config['base_uri'] = $app['guzzle.base_uri'];
+            $this->configuration['base_uri'] = $app['guzzle.base_uri'];
         }
         if(isset($app['guzzle.timeout'])){
-            $this->config['timeout'] = $app['guzzle.timeout'];
+            $this->configuration['timeout'] = $app['guzzle.timeout'];
         }
         if(isset($app['guzzle.allow_redirect'])){
-            $this->config['allow_redirect'] = $app['guzzle.allow_redirect'];
+            $this->configuration['allow_redirect'] = $app['guzzle.allow_redirect'];
         }
 
     }
