@@ -28,4 +28,4 @@ Read the documentation files under */doc*.
 License
 -------
 
-'silex-guzzlehttp-provider' is licensed under the MIT license.https://img.shields.io/badge/license-MIT-blue.svg
+'silex-guzzlehttp-provider' is licensed under the MIT license. [![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
