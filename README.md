@@ -2,7 +2,7 @@ Silex-Guzzle
 ================
 
 [![Build Status](https://api.travis-ci.org/rebangm/silex-guzzlehttp-provider.png?branch=master)](https://travis-ci.org/rebangm/silex-guzzlehttp-provider)
-
+[![codecov.io](http://codecov.io/github/rebangm/silex-guzzlehttp-provider/coverage.svg?branch=master)](http://codecov.io/github/rebangm/silex-guzzlehttp-provider?branch=master)
 Installation
 ------------
 
