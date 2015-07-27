@@ -1,7 +1,7 @@
 Silex-Guzzle
 ================
 
-[![Build Status](https://secure.travis-ci.org/mheap/Silex-Predis.png?branch=master)](http://travis-ci.org/mheap/Silex-Predis)
+[![Build Status](https://api.travis-ci.org/rebangm/silex-guzzlehttp-provider.png?branch=master)](https://travis-ci.org/rebangm/silex-guzzlehttp-provider)
 
 Installation
 ------------
