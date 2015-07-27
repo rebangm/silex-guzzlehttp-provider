@@ -45,7 +45,7 @@ class GuzzleServiceProviderTest extends \PHPUnit_Framework_TestCase
         $request = Request::create('/');
         $app->handle($request);
         $myRequest = $app['guzzle']->get('http://httpbin.org/');
-        $this->assertSame($myRequest->getStatusCode(),"200");
+        $this->assertSame($myRequest->getStatusCode(), 200);
     }
 
 
