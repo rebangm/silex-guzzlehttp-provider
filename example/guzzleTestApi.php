@@ -10,8 +10,8 @@ $app->register(new SilexGuzzle\GuzzleServiceProvider());
 
 $app->get('/', function() use($app) {
 
-    $request = $app['guzzle']->get('http://httpbin.org/');
-    return 'HttpBin API : "Status Code" "200" "' . $request->getStatusCode() . '"';
+    $request = $app['guzzle']->get('http://httpbin.org/ip');
+    return 'HttpBin API : "Status Code" "200" "' . $request->getStatusCode() . '"  '. $request->getBody()->getContents();
 });
 
 $app->get('/testTimeout', function() use($app) {
