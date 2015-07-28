@@ -5,7 +5,6 @@
     "homepage": "https://github.com/rebangm/silex-Guzzlehttp-provider",
     "type": "library",
     "license": "MIT",
-    "version": "dev",
     "authors": [
         {
             "name": "Jean-Philippe Dépigny",
