@@ -33,12 +33,13 @@ class GuzzleServiceProvider implements ServiceProviderInterface
         if(isset($app['guzzle.timeout'])){
             $this->configuration['timeout'] = $app['guzzle.timeout'];
         }
+        if(isset($app['guzzle.debug'])){
+            $this->configuration['debug'] = $app['guzzle.debug'];
+        }
         if(isset($app['guzzle.request_options']) && is_array($app['guzzle.request_options'])){
-            $this->configuration['timeout'] = $app['guzzle.timeout'];
             foreach($app['guzzle.request_options'] as $valueName => $value){
                 $this->configuration[$valueName] = $value ;
             }
         }
-
     }
 }
