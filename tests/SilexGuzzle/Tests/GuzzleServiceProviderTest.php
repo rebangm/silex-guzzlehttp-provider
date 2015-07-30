@@ -103,4 +103,47 @@ class GuzzleServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertObjectHasAttribute('origin', json_decode($myRequest->getBody()->getContents()));
 
     }
+
+    public function testSetRequestOptionsForAuth()
+    {
+        $app = new Application();
+        $app->register(new GuzzleServiceProvider(), array(
+            'guzzle.base_uri' => 'http://httpbin.org/',
+            'guzzle.request_options' => ['auth' =>['admin', 'password']]
+        ));
+
+        $app->get('/', function() use($app) {
+            $app['guzzle'];
+        });
+        $request = Request::create('/');
+        $app->handle($request);
+        $myRequest = $app['guzzle']->get('/basic-auth/admin/password');
+        $response = json_decode($myRequest->getBody()->getContents());
+
+        $this->assertObjectHasAttribute('authenticated', $response);
+        $this->assertTrue($response->authenticated);
+        $this->assertObjectHasAttribute('user', $response);
+        $this->assertSame('admin', $response->user);
+    }
+
+    public function testSetRequestOptionsForDebug()
+    {
+        $app = new Application();
+        $app->register(new GuzzleServiceProvider(), array(
+            'guzzle.base_uri' => 'http://httpbin.org/',
+            'guzzle.debug'=> true
+        ));
+
+        $app->get('/', function() use($app) {
+            $app['guzzle'];
+        });
+        $request = Request::create('/');
+        $app->handle($request);
+        $config = $app['guzzle']->getConfig();
+        $this->assertArrayHasKey('debug',$config);
+        $this->assertTrue($config['debug']);
+        //$myRequest = $app['guzzle']->get('/ip');
+        //$this->assertObjectHasAttribute('origin', json_decode($myRequest->getBody()->getContents()));
+
+    }
 }
