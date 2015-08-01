@@ -27,7 +27,7 @@ Supposing that the skeleton of your application is ready, you simply need to reg
 
 This will register one instance of Guzzle\Client accessible from anywhere in your application by using $app['guzzle']. all parameters are optional and they accept the same values accepted by the constructor of Guzzle\Client (see the documentation of Guzzle).
 
-'''php
+```php
     $app->register(new SilexGuzzle\GuzzleServiceProvider(),array(
         'guzzle.base_uri' => 3.14,
         'guzzle.timeout' => 3.14,
