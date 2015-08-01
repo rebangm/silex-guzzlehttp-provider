@@ -34,7 +34,7 @@ This will register one instance of Guzzle\Client accessible from anywhere in you
         'guzzle.request_options' =>
             ['auth' => ['admin', 'admin']]
     ));
-
+```
 
 
 You can find more details on how to use this provider in the examples directory or the test suite.
