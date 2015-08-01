@@ -20,10 +20,40 @@ and run::
     php composer.phar install
 
 
-More Information
+Getting started
 ----------------
 
-Read the documentation files under */doc*.
+Supposing that the skeleton of your application is ready, you simply need to register this service provider by specifying the parameters and options needed to access Guzzle:
+
+This will register one instance of Guzzle\Client accessible from anywhere in your application by using $app['guzzle']. all parameters are optional and they accept the same values accepted by the constructor of Guzzle\Client (see the documentation of Guzzle).
+
+
+    $app->register(new SilexGuzzle\GuzzleServiceProvider(),array(
+        'guzzle.base_uri' => 3.14,
+        'guzzle.timeout' => 3.14,
+        'guzzle.request_options' =>
+            ['auth' => ['admin', 'admin']]
+    ));
+
+
+
+You can find more details on how to use this provider in the examples directory or the test suite.
+
+Reporting bugs and contributing code
+
+Contributions are highly appreciated either in the form of pull requests for new features, bug fixes or just bug reports. We only ask you to adhere to a basic [basic set of rules](CONTRIBUTING.md) before submitting your changes or filing bugs on the issue tracker to make it easier for everyone to stay consistent while working on the project.
+
+### Project links ###
+
+- [Source code](http://github.com/rebangm/silex-guzzlehttp-provider)
+- [Issue tracker](http://github.com/rebangm/silex-guzzlehttp-provider/issues)
+
+
+### Author ###
+
+- [Jean-Philippe Dépigny](mailto:jp.depigny@gmail.com)
+  ([github](http://github.com/rebangm))
+  ([twitter](https://twitter.com/rhadamanthiss))
 
 License
 -------
