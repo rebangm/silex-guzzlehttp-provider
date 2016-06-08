@@ -31,7 +31,7 @@ This will register one instance of Guzzle\Client accessible from anywhere in you
 
 ```php
     $app->register(new SilexGuzzle\GuzzleServiceProvider(),array(
-        'guzzle.base_uri' => 3.14,
+        'guzzle.base_uri' => "http://httpbin.com/",
         'guzzle.timeout' => 3.14,
         'guzzle.request_options' =>
             ['auth' => ['admin', 'admin']]
