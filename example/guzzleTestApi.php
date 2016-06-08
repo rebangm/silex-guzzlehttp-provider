@@ -20,10 +20,21 @@ $app->register(new SilexGuzzle\GuzzleServiceProvider(), array(
 ));
 
 
-$app->get('/', function () use ($app) {
+$app->get('/ip', function () use ($app) {
 
     $request = $app['guzzle']->get('http://httpbin.org/ip');
     return 'HttpBin API : "Status Code" "200" "' . $request->getStatusCode() . '"  ' . $request->getBody()->getContents();
+});
+
+$app->get('/', function () use ($app) {
+
+    return <<<EOD
+/ip  => Get Ip <br/>
+/get => send get?q=foo <br/>
+/auth => authenticate with admin:admin <br/>
+/testTimeout => Get with 5 sec delay <br/>
+/post => post request <br/>
+EOD;
 });
 
 $app->get('/get', function () use ($app) {
@@ -46,6 +57,17 @@ $app->get('/testTimeout', function () use ($app) {
     } catch (\exception $e) {
         return 'HttpBin API : "Timeout" at ' . $e->getMessage();
     }
+});
+
+$app->get('/post', function () use ($app) {
+    try {
+        $request = $app['guzzle']->request('POST', 'http://httpbin.org/post', ['form_params' => ['field_name' => 'value']]);
+
+        return 'HttpBin API : Post "200" "' . $request->getStatusCode() . '" '. 'send Post data with form_params';
+    }catch(\Exception $e){
+        return $e;
+    }
+
 });
 
 
